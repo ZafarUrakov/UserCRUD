@@ -10,8 +10,5 @@ namespace UserCRUD.Brokers.Storages
     {
         ValueTask<Feedback> InsertFeedbackAsync(Feedback feedback);
         IQueryable<Feedback> SelectAllFeedbacks();
-        ValueTask<Feedback> SelectFeedbackByIdAsync(Guid feedbackId);
-        ValueTask<Feedback> UpdateFeedbackAsync(Feedback feedback);
-        ValueTask<Feedback> DeleteFeedbackAsync(Feedback feedback);
     }
 }

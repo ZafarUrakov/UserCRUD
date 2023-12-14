@@ -6,11 +6,11 @@ using UserCRUD.Models.Calculations;
 
 namespace CalculationCRUD.Services.Foundations.Calculations
 {
-    public class CalculatonService : ICalculatonService
+    public class CalculationService : ICalculationService
     {
         private readonly IStorageBroker storageBroker;
 
-        public CalculatonService(IStorageBroker storageBroker) =>
+        public CalculationService(IStorageBroker storageBroker) =>
             this.storageBroker = storageBroker;
 
         public async ValueTask<Calculation> AddCalculationAsync(Calculation calculation) =>

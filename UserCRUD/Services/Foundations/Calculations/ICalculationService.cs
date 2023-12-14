@@ -5,7 +5,7 @@ using UserCRUD.Models.Calculations;
 
 namespace CalculationCRUD.Services.Foundations.Calculations
 {
-    public interface ICalculatonService
+    public interface ICalculationService
     {
         ValueTask<Calculation> AddCalculationAsync(Calculation calculation);
         ValueTask<Calculation> RetrieveCalculationByIdAsync(Guid calculationId);

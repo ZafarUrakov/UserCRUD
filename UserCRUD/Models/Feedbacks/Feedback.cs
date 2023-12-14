@@ -6,6 +6,7 @@ namespace UserCRUD.Models.Feedbacks
 {
     public class Feedback
     {
+        [JsonIgnore]
         public Guid Id { get; set; }
         public string Answer { get; set; }
 

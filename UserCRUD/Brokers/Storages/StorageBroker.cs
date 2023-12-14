@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EFxceptions;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using UserCRUD.Models.Users;
 
 namespace UserCRUD.Brokers.Storages
@@ -16,7 +17,7 @@ namespace UserCRUD.Brokers.Storages
         {
             var broker = new StorageBroker();
             broker.Entry(@object).State = EntityState.Added;
-            await this.SaveChangesAsync();
+            await broker.SaveChangesAsync();
 
             return @object;
         }
@@ -28,18 +29,18 @@ namespace UserCRUD.Brokers.Storages
             return broker.Set<T>();
         }
 
-        public async ValueTask<T> SelectAsync<T>(params object[] objectId) where T : class
+        public async ValueTask<T> SelectAsync<T>(params object[] objectsId) where T : class
         {
             var broker = new StorageBroker();
 
-            return await broker.FindAsync<T>(objectId);
+            return await broker.FindAsync<T>(objectsId);
         }
 
         public async ValueTask<T> UpdateAsync<T>(T @object)
         {
             var broker = new StorageBroker();
             broker.Entry(@object).State = EntityState.Modified;
-            await this.SaveChangesAsync();
+            await broker.SaveChangesAsync();
 
             return @object;
         }
@@ -48,7 +49,7 @@ namespace UserCRUD.Brokers.Storages
         {
             var broker = new StorageBroker();
             broker.Entry(@object).State = EntityState.Deleted;
-            await this.SaveChangesAsync();
+            await broker.SaveChangesAsync();
 
             return @object;
         }
