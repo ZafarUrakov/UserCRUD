@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using UserCRUD.Models.Users;
 using UserCRUD.Services.Foundations.Users;
 

@@ -14,8 +14,12 @@ namespace UserCRUD.Services.Foundations.Users
         public UserService(IStorageBroker storageBroker) =>
             this.storageBroker = storageBroker;
 
-        public async ValueTask<User> AddUserAsync(User user) =>
-            await this.storageBroker.InsertUserAsync(user);
+        public async ValueTask<User> AddUserAsync(User user)
+        {
+            user.Id = Guid.NewGuid();
+
+            return await this.storageBroker.InsertUserAsync(user);
+        }
 
         public async ValueTask<User> ModifyUserAsync(User user) =>
             await this.storageBroker.UpdateUserAsync(user);
